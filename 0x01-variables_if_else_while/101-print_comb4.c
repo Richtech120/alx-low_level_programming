@@ -1,31 +1,35 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
+ * main - prints all possible different combinations of these digits
  * Return: Always 0 (Success)
-*/
+ */
 int main(void)
 {
-	int n, m, x;
+	int ones = '0';
+	int tens = '0';
+	int hundreds = '0';
 
-	for (n = 48; n < 58; n++)
+	for (hundreds = '0'; hundreds <= '9'; hundreds++)
 	{
-		for (x = 50; x < 58; x++)
+		for (tens = '0'; tens <= '9'; tens++)
 		{
-			if (x > m && m > n)
+			for (ones = '0'; ones <= '9'; ones++)
 			{
-				putchar(n);
-				putchar(m);
-				putchar(x);
-				if (n != 55 || m != 56)
+				if (!((ones == tens) || (tens == hundreds) ||
+							(tens > ones) || (hundreds > tens)))
 				{
-					putchar(',');
+					putchar(hundreds);
+					putchar(tens);
+					putchar(ones);
+					if (!(ones == '9' && hundreds == '7' && tens == '8'))
+					{
+						putchar(',');
 						putchar(' ');
+					}
 				}
 			}
 		}
 	}
-}
-putchar('\n');
-return (0);
+	putchar('\n');
+	return (0);
 }
