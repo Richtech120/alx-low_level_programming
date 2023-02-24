@@ -1,16 +1,17 @@
 #include "main.h"
+
 /**
- * print_numbers - prints 0-9 in ASCII form
- * Description: prints 0-9 in ASCII form
+ * print_numbers - prints the numbers, from 0 to 9,
+ * followed by a new line
  */
 void print_numbers(void)
 {
-	int character = '0';
+	int i;
 
-	while (character <= '9')
+	for (i = 0; i < 10; i++)
 	{
-		_putchar(character);
-		character++;
+		_putchar(i + '0');
 	}
+
 	_putchar('\n');
 }
